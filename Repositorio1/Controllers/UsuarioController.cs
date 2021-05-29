@@ -17,5 +17,33 @@ namespace Repositorio1.Controllers
             }
                 
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(usuario usuario)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                using (var db = new inventario2021Entities1())
+                {
+                    db.usuario.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
     }
 }
