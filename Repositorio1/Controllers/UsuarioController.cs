@@ -93,11 +93,23 @@ namespace Repositorio1.Controllers
         }
 
         public ActionResult Details(int id)
+        {//abriendo la conexion a la BD
+            using (var db = new inventario2021Entities1())
+            {
+                //buscar usuario por id
+                usuario user = db.usuario.Find(id);
+                return View(user);
+            }
+        }
+
+        public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities1())
             {
-                usuario user = db.usuario.Find(id);
-                return View(user);
+                var usuario = db.usuario.Find(id);
+                db.usuario.Remove(usuario);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
         }
     }
