@@ -91,5 +91,14 @@ namespace Repositorio1.Controllers
             }
 
         }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                usuario user = db.usuario.Find(id);
+                return View(user);
+            }
+        }
     }
 }
