@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\producto_compraController.cs" />
+    <Compile Include="Controllers\producto_imagenController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -313,6 +314,10 @@
     <Content Include="Views\producto_compra\Create.cshtml" />
     <Content Include="Views\producto_compra\Details.cshtml" />
     <Content Include="Views\producto_compra\Edit.cshtml" />
+    <Content Include="Views\producto_imagen\Index.cshtml" />
+    <Content Include="Views\producto_imagen\Create.cshtml" />
+    <Content Include="Views\producto_imagen\Details.cshtml" />
+    <Content Include="Views\producto_imagen\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
