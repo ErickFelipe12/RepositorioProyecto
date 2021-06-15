@@ -51,8 +51,8 @@ namespace Repositorio1.Controllers
             {
                 using (var db = new inventario2021Entities1())
                 {
-                    var usuariorol = db.usuariorol.Find(id);
-                    db.usuariorol.Remove(usuariorol);
+                    var usuariorolDelete = db.usuariorol.Find(id);
+                    db.usuariorol.Remove(usuariorolDelete);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -84,6 +84,8 @@ namespace Repositorio1.Controllers
                     return View();
                 }
             }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
             public ActionResult Edit(usuariorol usuariorolEdit)
             {
                 try
