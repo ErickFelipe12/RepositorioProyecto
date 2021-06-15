@@ -11,8 +11,8 @@ namespace Repositorio1.Controllers
     {
         // GET: usuariorol
 
-        public class producto_compraController : Controller
-        {
+        
+        
             // GET: producto_compra
             public ActionResult Index()
             {
@@ -28,7 +28,7 @@ namespace Repositorio1.Controllers
             [ValidateAntiForgeryToken]
             public ActionResult Create(usuariorol newusuariorol)
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                     return View();
 
                 try
@@ -107,6 +107,6 @@ namespace Repositorio1.Controllers
                 }
             }
 
-        }
+        
     }
 }

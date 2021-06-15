@@ -42,7 +42,7 @@ namespace Repositorio1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(producto newProducto)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
 
             try
@@ -61,16 +61,7 @@ namespace Repositorio1.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
-        {
-            using (var db = new inventario2021Entities1())
-            {
-                var producto = db.producto.Find(id);
-                db.producto.Remove(producto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-        }
+       
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities1())
@@ -79,23 +70,39 @@ namespace Repositorio1.Controllers
                 return View(productoDetalle);
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+
+                var productDelete = db.producto.Find(id);
+                db.producto.Remove(productDelete);
+                db.SaveChanges();
+                return RedirectToAction("index");
+            }
+
+        }
+        
         public ActionResult Edit(int id)
         {
             try
             {
                 using (var db= new inventario2021Entities1())
                 {
-                    producto producto = db.producto.Where(a => a.id == id).FirstOrDefault();
-                    return View(producto);
+                    producto findUser= db.producto.Where(a => a.id == id).FirstOrDefault();
+                    return View(findUser);
 
                 }
             }
             catch(Exception ex)
             {
-                ModelState.AddModelError("", "ERROR" + ex);
+                ModelState.AddModelError("", "error" + ex);
                     return View();
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(producto productoEdit)
         {
             try

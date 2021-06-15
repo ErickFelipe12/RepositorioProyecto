@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar Producto</h2>
 
 @using (Html.BeginForm())
 {
@@ -51,7 +51,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.id_proveedor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.id_proveedor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.Action("Listarproveedores")
                 @Html.ValidationMessageFor(model => model.id_proveedor, "", new { @class = "text-danger" })
             </div>
         </div>
