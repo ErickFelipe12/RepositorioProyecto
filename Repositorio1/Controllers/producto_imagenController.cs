@@ -24,7 +24,7 @@ namespace Repositorio1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(producto_imagen newproducto_imagen)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
 
             try
@@ -47,8 +47,8 @@ namespace Repositorio1.Controllers
         {
             using (var db = new inventario2021Entities1())
             {
-                var producto_imagen = db.producto_imagen.Find(id);
-                db.producto_imagen.Remove(producto_imagen);
+                var producto_imagenDelete = db.producto_imagen.Find(id);
+                db.producto_imagen.Remove(producto_imagenDelete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -81,6 +81,8 @@ namespace Repositorio1.Controllers
             }
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(producto_imagen producto_imagenEdit)
         {
             try
