@@ -68,10 +68,10 @@ namespace Repositorio1.Controllers
             {
                 using (var db = new inventario2021Entities1())
                 {
-                    usuario user = db.usuario.Find(clienteEdit.id);
+                    cliente user = db.cliente.Find(clienteEdit.id);
 
                     user.nombre = clienteEdit.nombre;
-                    user.apellido = clienteEdit.documento;
+                    user.documento = clienteEdit.documento;
                     user.email = clienteEdit.email;
                     
                    

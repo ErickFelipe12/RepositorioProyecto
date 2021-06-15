@@ -15,13 +15,13 @@ namespace Repositorio1.Controllers
             using (var db = new inventario2021Entities1())
                 return View(db.compra.ToList());
         }
-        public static string Nombreproveedor(int idProveedor)
-        {
-            using (var db = new inventario2021Entities1())
-            {
-                return db.proveedor.Find(idProveedor).nombre;
-            }
-        }
+        //public static string Nombreproveedor(int idProveedor)
+        //{
+        //    using (var db = new inventario2021Entities1())
+        //    {
+        //        return db.proveedor.Find(idProveedor).nombre;
+        //    }
+        //}
         public ActionResult Create()
         {
             return View();
@@ -31,7 +31,7 @@ namespace Repositorio1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(compra newCompra)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View();
 
             try
@@ -54,8 +54,8 @@ namespace Repositorio1.Controllers
         {
             using (var db = new inventario2021Entities1())
             {
-                var compra = db.compra.Find(id);
-                db.compra.Remove(compra);
+                var compraDelete = db.compra.Find(id);
+                db.compra.Remove(compraDelete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -85,6 +85,8 @@ namespace Repositorio1.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(compra compraEdit)
         {
             try
