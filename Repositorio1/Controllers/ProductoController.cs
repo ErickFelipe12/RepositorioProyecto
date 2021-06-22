@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Repositorio1.Models;
+using Rotativa;
 
 namespace Repositorio1.Controllers
 {
@@ -151,6 +152,11 @@ namespace Repositorio1.Controllers
                 ModelState.AddModelError("", "Error" + ex);
                 return View();
             }
+        }
+
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }
