@@ -11,7 +11,8 @@ namespace Repositorio1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace Repositorio1.Models
         }
     
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El nombre del proveedor no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "El nombre supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "Es obligatorio este campo")]
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string nombre_contacto { get; set; }

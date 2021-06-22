@@ -10,6 +10,7 @@ namespace Repositorio1.Controllers
     public class ProductoController : Controller
     {
         // GET: Producto
+        [Authorize]
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities1())

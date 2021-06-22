@@ -99,8 +99,8 @@ namespace Repositorio1.Controllers
         {
             using (var db = new inventario2021Entities1())
             {
-                var cliente = db.cliente.Find(id);
-                db.cliente.Remove(cliente);
+                var clienteDelete = db.cliente.Find(id);
+                db.cliente.Remove(clienteDelete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

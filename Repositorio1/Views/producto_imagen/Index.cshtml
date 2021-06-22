@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.imagen)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_producto)
+            Producto
         </th>
         <th></th>
     </tr>
@@ -27,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.imagen)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_producto)
+                @Repositorio1.Controllers.producto_imagenController.Nombreproducto(item.id_producto)
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.id }) |

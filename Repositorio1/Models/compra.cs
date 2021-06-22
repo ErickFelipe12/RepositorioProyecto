@@ -11,7 +11,8 @@ namespace Repositorio1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class compra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace Repositorio1.Models
     
         public int id { get; set; }
         public System.DateTime fecha { get; set; }
+        [Required(ErrorMessage = "El total no puede ir vacio")]
         public int total { get; set; }
         public int id_usuario { get; set; }
         public int id_cliente { get; set; }

@@ -11,7 +11,9 @@ namespace Repositorio1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +24,13 @@ namespace Repositorio1.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage ="El nombre no puede ir vacio")]
+        [StringLength(20, ErrorMessage ="Supero el limite de 20 caracteres")]
         public string nombre { get; set; }
         public string apellido { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
+
+        [EmailAddress]
         public string email { get; set; }
         public string password { get; set; }
     

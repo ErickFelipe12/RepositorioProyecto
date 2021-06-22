@@ -7,18 +7,18 @@
 <h2>Producto Compra</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create")
+    @Html.ActionLink("Crear Nuevo ", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id_compra)
+            Compra
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_producto)
+            Producto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </th>
         <th></th>
     </tr>
@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.id_compra)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_producto)
+                @Repositorio1.Controllers.producto_compraController.Nombreproducto(item.id_producto)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cantidad)

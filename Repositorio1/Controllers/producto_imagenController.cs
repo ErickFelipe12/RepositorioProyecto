@@ -42,6 +42,20 @@ namespace Repositorio1.Controllers
                 return View();
             }
         }
+        public static string Nombreproducto(int idproducto)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.producto.Find(idproducto).nombre;
+            }
+        }
+        public ActionResult Listarproducto()
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return PartialView(db.producto.ToList());
+            }
+        }
 
         public ActionResult Delete(int id)
         {

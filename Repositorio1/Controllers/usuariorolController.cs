@@ -20,11 +20,33 @@ namespace Repositorio1.Controllers
                     return View(db.usuariorol.ToList());
             }
             public ActionResult Create()
-            {
+            { 
                 return View();
             }
+        public ActionResult ListarUsuarios()
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return PartialView(db.usuario.ToList());
+            }
+        }
+        public ActionResult ListarRoles()
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return PartialView(db.roles.ToList());
+            }
+        }
+        public static string Nombreusuario(int idusuario)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.usuario.Find(idusuario).nombre;
+            }
+        }
+        
 
-            [HttpPost]
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public ActionResult Create(usuariorol newusuariorol)
             {

@@ -323,6 +323,14 @@
     <Content Include="Views\usuariorol\Edit.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Producto\Details.cshtml" />
+    <Content Include="Views\Compra\ListarClientes.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Compra\ListarUsuarios.cshtml" />
+    <Content Include="Views\usuariorol\ListarUsuarios.cshtml" />
+    <Content Include="Views\usuariorol\ListarRoles.cshtml" />
+    <Content Include="Views\producto_compra\Listarproducto.cshtml" />
+    <Content Include="Views\producto_compra\Listarcompra.cshtml" />
+    <Content Include="Views\producto_imagen\Listarproducto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

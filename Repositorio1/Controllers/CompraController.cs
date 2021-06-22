@@ -22,6 +22,35 @@ namespace Repositorio1.Controllers
         //        return db.proveedor.Find(idProveedor).nombre;
         //    }
         //}
+        public static string Nombrecliente(int idcliente)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.cliente.Find(idcliente).nombre;
+            }
+        }
+        public static string Nombreusuario(int idusuario)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.usuario.Find(idusuario).nombre;
+            }
+        }
+        public ActionResult ListarClientes()
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return PartialView(db.cliente.ToList());
+            }
+        }
+
+        public ActionResult ListarUsuarios()
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return PartialView(db.usuario.ToList());
+            }
+        }
         public ActionResult Create()
         {
             return View();

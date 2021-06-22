@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idUsuario)
+            Usuario
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idRol)
+            Rol
         </th>
         <th></th>
     </tr>
@@ -24,7 +24,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.idUsuario)
+                @Repositorio1.Controllers.usuariorolController.Nombreusuario(item.idUsuario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.idRol)

@@ -11,7 +11,8 @@ namespace Repositorio1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,8 +23,12 @@ namespace Repositorio1.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "Supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El precio unitario no puede ir vacio")]
         public int percio_unitario { get; set; }
+        [Required(ErrorMessage = "Cada producto debe tener una descripción")]
         public string descripcion { get; set; }
         public int cantidad { get; set; }
         public int id_proveedor { get; set; }

@@ -5,10 +5,12 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Repositorio1.Models;
+using System.Web.Security;
 namespace Repositorio1.Controllers
 {
     public class UsuarioController : Controller
     {
+        [Authorize]
         // GET: Usuario
         public ActionResult Index()
         {
@@ -19,12 +21,12 @@ namespace Repositorio1.Controllers
             }
 
         }
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(usuario usuario)
@@ -63,7 +65,7 @@ namespace Repositorio1.Controllers
 
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             try
@@ -81,7 +83,7 @@ namespace Repositorio1.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuario usuarioEdit)
@@ -110,6 +112,7 @@ namespace Repositorio1.Controllers
 
         }
 
+        [Authorize]
         public ActionResult Details(int id)
         {//abriendo la conexion a la BD
             using (var db = new inventario2021Entities1())
@@ -120,6 +123,7 @@ namespace Repositorio1.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities1())
@@ -130,5 +134,38 @@ namespace Repositorio1.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult Login(string message = "")
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email, string password)
+        {
+            string passEncrip = UsuarioController.HashSHA1(password);
+            using (var db = new inventario2021Entities1())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == email && e.password == passEncrip);
+                if(userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email, true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
+        }
+        
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+        
     }
 }
