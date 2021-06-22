@@ -27,6 +27,7 @@ namespace Repositorio1.Models
         [Required(ErrorMessage ="El nombre no puede ir vacio")]
         [StringLength(20, ErrorMessage ="Supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El apellido no puede ir vacio")]
         public string apellido { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
 

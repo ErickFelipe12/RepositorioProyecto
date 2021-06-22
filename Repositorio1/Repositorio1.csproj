@@ -222,6 +222,7 @@
     <Compile Include="Models\proveedor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\roles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -331,6 +332,7 @@
     <Content Include="Views\producto_compra\Listarproducto.cshtml" />
     <Content Include="Views\producto_compra\Listarcompra.cshtml" />
     <Content Include="Views\producto_imagen\Listarproducto.cshtml" />
+    <Content Include="Views\Producto\Reporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
