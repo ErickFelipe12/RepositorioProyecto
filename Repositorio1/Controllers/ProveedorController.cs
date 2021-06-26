@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Repositorio1.Models;
+using System.IO;
 
 namespace Repositorio1.Controllers
 {
@@ -16,6 +17,62 @@ namespace Repositorio1.Controllers
             {
                 return View(db.proveedor.ToList());
             }
+        }
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult uploadCSV(HttpPostedFileBase fileForm)
+        {
+            //string para guardar la ruta del archivo
+            string filePath = string.Empty;
+
+            //condicional para saber si llego el archivo
+            if (fileForm != null)
+            {
+                //Ruta de la carpeta que guardara el archivo
+                string path = Server.MapPath("~/Uploads/");
+
+                //Condicion para saber si la ruta de la carpeta existe
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                //obtener el nombre del archivo
+                filePath = path + Path.GetFileName(fileForm.FileName);
+
+                //obtener la extension del archivo
+                string extension = Path.GetExtension(fileForm.FileName);
+
+                //guardar el archivo
+                fileForm.SaveAs(filePath);
+
+                string csvData = System.IO.File.ReadAllText(filePath);
+
+                foreach(string row in csvData.Split('\n'))
+                {
+                    if(!string.IsNullOrEmpty(row))
+                    {
+                        var newProveedor = new proveedor
+                        {
+                            nombre = row.Split(';')[0],
+                            direccion = row.Split(';')[1],
+                            telefono = row.Split(';')[2],
+                            nombre_contacto = row.Split(';')[3],
+                        };
+                        using (var db = new inventario2021Entities1())
+                        {
+                            db.proveedor.Add(newProveedor);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+            }
+
+            return View();
         }
         public ActionResult Create()
         {

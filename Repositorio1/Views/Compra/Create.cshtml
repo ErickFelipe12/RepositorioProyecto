@@ -31,15 +31,15 @@
         </div>
 
         <div class="form-group">
-                 Usuario
+                Usuario
             <div class="col-md-10">
                 @Html.Action("ListarUsuarios")
                 @Html.ValidationMessageFor(model => model.id_usuario, "", new { @class = "text-danger" })
             </div>
         </div>
-
+         
         <div class="form-group">
-                  Clientes
+                Cliente
             <div class="col-md-10">
                 @Html.Action("ListarClientes")
                 @Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })

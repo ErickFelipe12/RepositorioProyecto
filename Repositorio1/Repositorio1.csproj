@@ -341,6 +341,7 @@
     <Content Include="Views\producto_compra\Listarcompra.cshtml" />
     <Content Include="Views\producto_imagen\Listarproducto.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
+    <Content Include="Views\Proveedor\uploadCSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
