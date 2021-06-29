@@ -28,7 +28,9 @@ namespace Repositorio1.Models
         public string nombre { get; set; }
         [Required(ErrorMessage = "Es obligatorio este campo")]
         public string direccion { get; set; }
+        [Required(ErrorMessage = "El telefono del proveedor no puede ir vacio")]
         public string telefono { get; set; }
+        [Required(ErrorMessage = "El campo nombre_contacto no puede ir vacio")]
         public string nombre_contacto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

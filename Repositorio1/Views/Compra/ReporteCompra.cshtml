@@ -17,13 +17,19 @@
     </tr>
     @foreach(var item in Model)
     {
-<tr>
+   <tr>
     <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
     <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
     <td>@Html.DisplayFor(modelItem => item.emailCliente)</td>
     <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
     <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
-</tr>
+   </tr>
     }
+
 </table>
+
+@*<img src="https://cdn-bkaia.nitrocdn.com/BFTxzGCeSiHeYakoWkKipwTAkydShuyH/assets/static/optimized/wp-content/uploads/2018/08/2f9efdaa7d07fcce5b3792a5450b4aed.inventario.jpg" alt="Reporte" title="Reporte"/>
+<br />
+<p style="margin-top: 35px"> Reporte de los clientes e informacion de compras</p>*@
+
 @Html.ActionLink("Generar Reporte", "ImprimirReporteCompra", "Compra");

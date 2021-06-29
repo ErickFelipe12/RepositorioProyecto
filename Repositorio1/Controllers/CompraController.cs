@@ -154,7 +154,6 @@ namespace Repositorio1.Controllers
                                 emailCliente = tabCliente.email,
                                 fechaCompra = tabCompra.fecha,
                                 totalCompra = tabCompra.total
-
                             };
                 return View(query);
             }

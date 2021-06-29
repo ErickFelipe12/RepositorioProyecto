@@ -11,6 +11,7 @@ namespace Repositorio1.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class roles
     {
@@ -21,6 +22,7 @@ namespace Repositorio1.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El campo descripcion no puede ir vacio")]
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

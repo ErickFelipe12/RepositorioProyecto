@@ -1,0 +1,15 @@
+﻿/*aplicando estilos a una etiqueta*/
+body {
+    font-family: 'Merriweather', serif;
+}
+
+/*aplicando estilos por medio de clases*/
+.tituloHome
+{
+
+}
+
+.navbar-inverse 
+{
+    background-color: gray;
+}

@@ -29,6 +29,7 @@ namespace Repositorio1.Models
         public string nombre { get; set; }
         [Required(ErrorMessage = "El apellido no puede ir vacio")]
         public string apellido { get; set; }
+        [Required(ErrorMessage = "La fecha de nacimiento es obligatoria")]
         public System.DateTime fecha_nacimiento { get; set; }
 
         [EmailAddress]
