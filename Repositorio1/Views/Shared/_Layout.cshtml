@@ -31,6 +31,7 @@
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
 
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
+
                     @if (User.Identity.IsAuthenticated)
                     {
 
@@ -42,54 +43,46 @@
                                 <li> @Html.ActionLink("CRUD Usuario", "Index", "Usuario")                 </li>
 
                                 <li>@Html.ActionLink("CRUD Producto", "Index", "Producto")                 </li>
- 
+
                                 <li>@Html.ActionLink("CRUD Cliente", "Index", "Cliente")                 </li>
-                               
+
                                 <li> @Html.ActionLink("CRUD Proveedor", "Index", "Proveedor")                 </li>
-                                
+
                                 <li>@Html.ActionLink("CRUD Usuariorol", "Index", "usuariorol")                 </li>
-                                
+
                                 <li>@Html.ActionLink("CRUD Compra", "Index", "Compra")                 </li>
-                                
+
                                 <li>@Html.ActionLink("CRUD Producto Compra", "Index", "producto_compra")                 </li>
-                                
+
                                 <li>@Html.ActionLink("CRUD Producto Imagen", "Index", "producto_imagen")                 </li>
-                                
+
                                 <li>@Html.ActionLink("CRUD Roles", "Index", "Roles")                 </li>
-                                
+
                                 <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")                     </li>
 
                             </ul>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="navbar-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
 
-                                Reportes
-                            </a>
-                            <div class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
 
-                                <a class="dropdown-item" href="#">@Html.ActionLink("Reporte Compra", "ReporteCompra", "Compra")                 </a>
-                                <br />
-                                <a class="dropdown-item" href="#">@Html.ActionLink("Reporte Proveedor", "Reporte", "Producto")                 </a>
+                                <li> @Html.ActionLink("Reporte Compra", "ReporteCompra", "Compra")                 </li>
 
-                            </div>
+                                <li> @Html.ActionLink("Reporte Proveedor", "Reporte", "Producto")                 </li>
+                            </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="navbar-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
-
-                                Subir Archivos
-                            </a>
-                            <div class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subir Archivos<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
 
-                                <a class="dropdown-item" href="#">@Html.ActionLink("Subir Proveedor", "uploadCSV", "Proveedor")                 </a>
-                                <br />
-                                <a class="dropdown-item" href="#">@Html.ActionLink("Subir Cliente", "uploadCSV", "Cliente")</a>
+                                <li> @Html.ActionLink("Subir Proveedor", "uploadCSV", "Proveedor")                 </li>
 
-                               
-                            </div>
+                                <li> @Html.ActionLink("Subir Cliente", "uploadCSV", "Cliente")                 </li>
+                            </ul>
                         </li>
 
                     }
@@ -101,7 +94,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - https://github.com/ErickFelipe12 | Erick Felipe Pineda | efpineda56@misena.edu.co</p>
+            <p>&copy; @DateTime.Now.Year - Github.com/ErickFelipe12 | Erick Felipe Pineda | efpineda56@misena.edu.co</p>
         </footer>
     </div>
 

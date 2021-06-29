@@ -27,7 +27,7 @@ namespace Repositorio1.Models
         public string nombre { get; set; }
         [Required(ErrorMessage ="El campo documento no puede ir vacio")]
         public string documento { get; set; }
-
+        [Required(ErrorMessage = "El campo email no puede ir vacio")]
         [EmailAddress]
         public string email { get; set; }
     

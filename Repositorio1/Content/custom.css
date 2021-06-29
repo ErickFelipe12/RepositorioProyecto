@@ -11,8 +11,11 @@ body {
 
 .navbar-inverse 
 {
-    background-color: gray;
+    background-color: saddlebrown;
 }
 .navbar-inverse .navbar-brand{
     color: white;
+}
+.jumbotron {
+    background-color: paleturquoise;
 }
