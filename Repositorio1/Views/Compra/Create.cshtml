@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-                Usuario
+            <label class="control-label col-md-2" for="id_usuario">Usuario </label>
             <div class="col-md-10">
                 @Html.Action("ListarUsuarios")
                 @Html.ValidationMessageFor(model => model.id_usuario, "", new { @class = "text-danger" })
@@ -39,7 +39,7 @@
         </div>
          
         <div class="form-group">
-                Cliente
+            <label class="control-label col-md-2" for="id_cliente">Cliente </label>
             <div class="col-md-10">
                 @Html.Action("ListarClientes")
                 @Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })

@@ -13,3 +13,6 @@ body {
 {
     background-color: gray;
 }
+.navbar-inverse .navbar-brand{
+    color: white;
+}
