@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Repositorio1.Models.ReporteCompra>
+
+@{
+    ViewBag.Title = "Reporte Compra";
+}
+
+<h2>Reporte Compra</h2>
+
+<table class="table">
+    <tr>
+
+        <th>Cliente</th>
+        <th>Docuemnto Cliente</th>
+        <th>Correo Cliente</th>
+        <th>Fecha Compra</th>
+        <th>Compra total</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
+    <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
+    <td>@Html.DisplayFor(modelItem => item.emailCliente)</td>
+    <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
+    <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+</tr>
+    }
+</table>
+@Html.ActionLink("Generar Reporte", "ImprimirReporteCompra", "Compra");

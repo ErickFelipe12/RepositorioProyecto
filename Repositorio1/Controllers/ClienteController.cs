@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Repositorio1.Models;
+using System.IO;
 
 namespace Repositorio1.Controllers
 {
@@ -104,6 +105,57 @@ namespace Repositorio1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+        }
+
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult uploadCSV(HttpPostedFileBase fileForm)
+        {
+            string filePath = string.Empty;
+
+            if (fileForm != null)
+            {
+                string path = Server.MapPath("~/Uploads/");
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                //obtener el nombre del archivo
+                filePath = path + Path.GetFileName(fileForm.FileName);
+
+                string extension = Path.GetExtension(fileForm.FileName);
+
+                //Guardar archivo
+                fileForm.SaveAs(filePath);
+
+                string csvData = System.IO.File.ReadAllText(filePath);
+
+                foreach(string row in csvData.Split('\n'))
+                {
+                    if (!string.IsNullOrEmpty(row))
+                    {
+                        var newCliente = new cliente
+                        {
+                            nombre = row.Split(';')[0],
+                            documento = row.Split(';')[1],
+                            email = row.Split(';')[2],
+                        };
+
+                        using (var db = new inventario2021Entities1())
+                        {
+                            db.cliente.Add(newCliente);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+            }
+            return View();
         }
     }
 }

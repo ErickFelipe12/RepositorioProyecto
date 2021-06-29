@@ -59,7 +59,36 @@
 
                             </div>
                         </li>
-                        
+                        <li class="nav-item dropdown">
+                            <a class="navbar-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
+
+                                Reportes
+                            </a>
+                            <div class="dropdown-menu">
+
+
+                                <a class="dropdown-item" href="#">@Html.ActionLink("Reporte Compra", "ReporteCompra", "Compra")                 </a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("Reporte Proveedor", "Reporte", "Producto")                 </a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="navbar-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
+
+                                CSV
+                            </a>
+                            <div class="dropdown-menu">
+
+
+                                <a class="dropdown-item" href="#">@Html.ActionLink("Subir Proveedor", "uploadCSV", "Proveedor")                 </a>
+                                <br />
+                                <a class="dropdown-item" href="#">@Html.ActionLink("Subir Cliente", "uploadCSV", "Cliente")
+
+                               
+                            </div>
+                        </li>
+
                     }
                 </ul>
             </div>
@@ -69,7 +98,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Todos los derechos reservados | Erick Felipe Pineda | efpineda56@misena.edu.co</p>
         </footer>
     </div>
 

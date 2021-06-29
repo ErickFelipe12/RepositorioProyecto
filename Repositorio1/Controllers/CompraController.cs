@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Repositorio1.Models;
+using Rotativa;
 
 namespace Repositorio1.Controllers
 {
@@ -137,6 +138,35 @@ namespace Repositorio1.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+
+        public ActionResult ReporteCompra()
+        {
+            try
+            {
+                var db = new inventario2021Entities1();
+                var query = from tabCliente in db.cliente
+                            join tabCompra in db.compra on tabCliente.id equals tabCompra.id_cliente
+                            select new ReporteCompra
+                            {
+                                nombreCliente = tabCliente.nombre,
+                                documentoCliente = tabCliente.documento,
+                                emailCliente = tabCliente.email,
+                                fechaCompra = tabCompra.fecha,
+                                totalCompra = tabCompra.total
+
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error" + ex);
+                return View();
+            }
+        }
+        public ActionResult ImprimirReporteCompra()
+        {
+            return new ActionAsPdf("ReporteCompra") { FileName = "ReporteCompra.pdf" };
         }
     }
 }
